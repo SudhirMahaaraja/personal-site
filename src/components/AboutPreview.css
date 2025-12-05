@@ -1,0 +1,223 @@
+.about-preview-section {
+    width: 100%;
+    padding: 8rem 2rem;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    position: relative;
+    z-index: 2;
+}
+
+.about-preview-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+/* Left Column */
+.about-preview-left {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.about-preview-heading {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-gray-cool);
+    margin: 0;
+    font-weight: 600;
+}
+
+.about-preview-subheadline {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.1;
+    font-weight: 700;
+    margin: 0;
+    color: var(--text-primary);
+    max-width: 20ch;
+}
+
+/* Divider */
+.about-preview-divider {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    opacity: 0.6;
+}
+
+.about-divider-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+}
+
+.about-divider-icon {
+    color: var(--accent);
+    font-size: 1.2rem;
+    animation: spin 10s linear infinite;
+}
+
+.about-preview-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 65ch;
+}
+
+.about-preview-body p {
+    font-family: var(--font-sans);
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0;
+    font-weight: 400;
+}
+
+/* Right Column */
+.about-preview-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    min-height: 400px;
+    align-items: flex-end;
+    text-align: right;
+}
+
+.about-preview-micro-intro {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    color: #FFDD98;
+    max-width: 250px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Pill Button with Improved Hover */
+.about-preview-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.2rem 2.5rem;
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 100px;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 1.1rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    margin-top: auto;
+    z-index: 1;
+}
+
+.about-preview-btn svg {
+    transition: transform 0.3s ease;
+}
+
+.about-preview-btn:hover {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    color: #FFDD98;
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 221, 152, 0.3);
+}
+
+.about-preview-btn:hover svg {
+    transform: translateX(5px);
+}
+
+/* Animation Initial States */
+.about-preview-heading,
+.about-preview-subheadline,
+.about-preview-divider,
+.about-preview-body,
+.about-preview-right {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Trigger Animations */
+.about-preview-section.animate .about-preview-heading {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.1s;
+}
+
+.about-preview-section.animate .about-preview-subheadline {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.2s;
+}
+
+.about-preview-section.animate .about-preview-divider {
+    opacity: 0.6;
+    transform: translateY(0);
+    transition-delay: 0.3s;
+}
+
+.about-preview-section.animate .about-preview-body {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.4s;
+}
+
+.about-preview-section.animate .about-preview-right {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.5s;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .about-preview-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .about-preview-right {
+        min-height: auto;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        text-align: left;
+        border-top: 1px solid var(--border-color);
+        padding-top: 2rem;
+    }
+
+    .about-preview-micro-intro {
+        text-align: left;
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-preview-section {
+        padding: 6rem 1.5rem;
+    }
+
+    .about-preview-right {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+    }
+
+    .about-preview-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

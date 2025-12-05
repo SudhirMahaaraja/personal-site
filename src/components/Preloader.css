@@ -1,0 +1,53 @@
+.preloader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--color-black);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.8s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.preloader-container.exit {
+    transform: translateY(-100%);
+}
+
+.greeting-text {
+    font-family: var(--font-sans);
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--color-accent);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, filter 0.5s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.greeting-text.visible {
+    opacity: 1;
+}
+
+.greeting-text.no-transition {
+    transition: none !important;
+}
+
+.greeting-text::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-accent);
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+@media (min-width: 768px) {
+    .greeting-text {
+        font-size: 3rem;
+    }
+}

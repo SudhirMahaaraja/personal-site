@@ -1,0 +1,81 @@
+.screensaver-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+    /* Fast fade out */
+    background: rgba(0, 0, 0, 0.6);
+    /* Dimming effect */
+    backdrop-filter: grayscale(50%);
+}
+
+.screensaver-overlay.active {
+    opacity: 1;
+    transition: opacity 2s ease-in;
+    /* Slow fade in */
+}
+
+/* Star Animation */
+.stars-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+}
+
+/* Generate stars using box-shadow for performance */
+.stars {
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    box-shadow:
+        10vw 10vh #fff, 20vw 80vh #fff, 30vw 30vh #fff, 40vw 50vh #fff,
+        50vw 90vh #fff, 60vw 20vh #fff, 70vw 70vh #fff, 80vw 40vh #fff,
+        90vw 10vh #fff, 15vw 60vh #fff, 25vw 90vh #fff, 35vw 40vh #fff,
+        45vw 20vh #fff, 55vw 80vh #fff, 65vw 50vh #fff, 75vw 10vh #fff,
+        85vw 60vh #fff, 95vw 30vh #fff, 5vw 50vh #fff, 90vw 80vh #fff;
+    animation: fly 10s linear infinite;
+}
+
+.stars2 {
+    width: 3px;
+    height: 3px;
+    background: transparent;
+    box-shadow:
+        12vw 15vh #ccc, 22vw 85vh #ccc, 32vw 35vh #ccc, 42vw 55vh #ccc,
+        52vw 95vh #ccc, 62vw 25vh #ccc, 72vw 75vh #ccc, 82vw 45vh #ccc,
+        92vw 15vh #ccc, 17vw 65vh #ccc, 27vw 95vh #ccc, 37vw 45vh #ccc,
+        47vw 25vh #ccc, 57vw 85vh #ccc, 67vw 55vh #ccc, 77vw 15vh #ccc,
+        87vw 65vh #ccc, 97vw 35vh #ccc, 7vw 55vh #ccc, 92vw 85vh #ccc;
+    animation: fly 15s linear infinite;
+    animation-delay: -5s;
+}
+
+.stars3 {
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    box-shadow:
+        15vw 20vh #fff, 25vw 70vh #fff, 35vw 40vh #fff, 45vw 60vh #fff,
+        55vw 80vh #fff, 65vw 10vh #fff, 75vw 90vh #fff, 85vw 30vh #fff,
+        95vw 50vh #fff, 10vw 40vh #fff, 20vw 90vh #fff, 30vw 20vh #fff,
+        40vw 70vh #fff, 50vw 30vh #fff, 60vw 60vh #fff, 70vw 10vh #fff,
+        80vw 80vh #fff, 90vw 40vh #fff, 5vw 90vh #fff, 95vw 20vh #fff;
+    animation: fly 20s linear infinite;
+    animation-delay: -10s;
+}
+
+@keyframes fly {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-100vh);
+    }
+}

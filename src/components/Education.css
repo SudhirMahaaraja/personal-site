@@ -1,0 +1,221 @@
+.education-section {
+    padding: 8rem 2rem;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    position: relative;
+    z-index: 10;
+}
+
+.education-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+/* Header */
+.education-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.education-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    margin: 0;
+    color: var(--text-primary);
+    position: relative;
+}
+
+.accent-dot {
+    color: var(--accent-color);
+}
+
+/* Divider - Matching About Me */
+.education-divider {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    max-width: 100%;
+    opacity: 0.6;
+}
+
+.education-divider-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+}
+
+.education-divider-icon {
+    color: var(--accent);
+    font-size: 1.2rem;
+    animation: spin 10s linear infinite;
+}
+
+/* Content Layout */
+.education-content {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+/* Tabs (Left Column) */
+.education-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-left: 2px solid var(--border-color);
+}
+
+.education-tab {
+    padding: 1rem 1.5rem;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    color: var(--text-secondary);
+
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+    margin-left: -2px;
+    position: relative;
+}
+
+.education-tab:hover {
+    color: var(--text-primary);
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+.education-tab.active {
+    color: var(--accent-color);
+    border-left-color: var(--accent-color);
+    background-color: rgba(255, 221, 152, 0.05);
+    font-weight: 500;
+}
+
+/* Details (Right Column) */
+.education-details {
+    position: relative;
+    min-height: 200px;
+}
+
+.education-detail-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.detail-subheading {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.detail-date {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    color: var(--accent-color);
+    font-weight: 500;
+}
+
+.detail-institution {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.detail-description {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    max-width: 65ch;
+    margin-top: 0.5rem;
+}
+
+/* Animations */
+.education-section .education-title,
+.education-section .education-divider,
+.education-section .education-content {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.education-section.animate .education-title {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.1s;
+}
+
+.education-section.animate .education-divider {
+    opacity: 0.6;
+    transform: translateY(0);
+    transition-delay: 0.2s;
+}
+
+.education-section.animate .education-content {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.3s;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .education-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .education-tabs {
+        flex-direction: row;
+        overflow-x: auto;
+        border-left: none;
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 0;
+    }
+
+    .education-tab {
+        border-left: none;
+        border-bottom: 3px solid transparent;
+        margin-left: 0;
+        margin-bottom: -2px;
+        white-space: nowrap;
+    }
+
+    .education-tab.active {
+        border-left-color: transparent;
+        border-bottom-color: var(--accent-color);
+    }
+
+    .detail-header {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
