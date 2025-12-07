@@ -1,14 +1,30 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const AuraBackground = ({ opacity = 1, className = '' }) => {
+    const [isMobile, setIsMobile] = useState(false);
+
     useEffect(() => {
+        const checkMobile = () => {
+            // Treat width < 1024px (tablets included) as mobile/simplified view
+            setIsMobile(window.innerWidth < 1024);
+        };
+
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
+    useEffect(() => {
+        // Only load Unicorn Studio on Desktop
+        if (isMobile) return;
+
         const initUnicorn = () => {
             if (window.UnicornStudio) {
                 window.UnicornStudio.init();
                 return;
             }
 
-            // Check if script already exists to prevent duplicates
             if (document.querySelector('script[src*="unicornStudio"]')) {
                 return;
             }
@@ -23,16 +39,12 @@ const AuraBackground = ({ opacity = 1, className = '' }) => {
             document.body.appendChild(script);
         };
 
-        // Try init immediately in case it's already there
         initUnicorn();
-
-        // If we navigated back, re-init might be needed if component unmounted
+        // Retry for safety
         const timeout = setTimeout(initUnicorn, 100);
-
         return () => clearTimeout(timeout);
-    }, []);
+    }, [isMobile]);
 
-    // Dynamic style for opacity to control intensity on different pages
     const containerStyle = {
         opacity: opacity,
         transition: 'opacity 0.5s ease-in-out'
@@ -40,15 +52,24 @@ const AuraBackground = ({ opacity = 1, className = '' }) => {
 
     return (
         <div className={`aura-wrapper ${className}`} style={containerStyle}>
-            {/* Unicorn Studio Background */}
-            <div
-                className="aura-background-component"
-                data-alpha-mask="82"
-            >
-                <div data-us-project="OGV3DwiIWxPelWFZjtEu" className="us-project-container"></div>
-            </div>
+            {isMobile ? (
+                /* Mobile Fallback: Animated CSS Blobs */
+                <div className="mobile-aura-container">
+                    <div className="aura-blob blob-1"></div>
+                    <div className="aura-blob blob-2"></div>
+                    <div className="aura-blob blob-3"></div>
+                </div>
+            ) : (
+                /* Desktop: Full WebGL Aura */
+                <div
+                    className="aura-background-component"
+                    data-alpha-mask="82"
+                >
+                    <div data-us-project="OGV3DwiIWxPelWFZjtEu" className="us-project-container"></div>
+                </div>
+            )}
 
-            {/* Ambient Glows */}
+            {/* Ambient Glows (Shared) */}
             <div className="aura-glow glow-1"></div>
             <div className="aura-glow glow-2"></div>
         </div>
