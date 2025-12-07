@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import './Contact.css';
+import avatar from '../assets/my-avatar.png';
 
 const Contact = ({ onNavigate }) => {
     const [isVisible, setIsVisible] = useState(false);
@@ -249,7 +250,9 @@ const Contact = ({ onNavigate }) => {
                     {/* Right: Contact Info */}
                     <div className="contact-info">
                         <div className="info-logo">
-                            <div className="logo-circle">SM</div>
+                            <div className="logo-circle">
+                                <img src={avatar} alt="Sudhir Mahaaraja" className="logo-img" />
+                            </div>
                         </div>
 
                         <div className="info-section">

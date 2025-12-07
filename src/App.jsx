@@ -3,7 +3,7 @@ import './App.css'
 import Cursor from './components/Cursor'
 import Preloader from './components/Preloader'
 import Navbar from './components/Navbar'
-import Hero from './components/Hero'
+import Hero from './components/ControlCenterHero'
 import AboutPreview from './components/AboutPreview';
 import WhatIDo from './components/WhatIDo';
 import IdleScreensaver from './components/IdleScreensaver';
