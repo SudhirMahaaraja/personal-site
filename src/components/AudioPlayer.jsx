@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import audioFile from '../assets/Clairvoyant - MISOGI.mp3';
+import audioFile from '../assets/Clairvoyant - MISOGI [music].mp3';
 
 const AudioPlayer = ({ mobile = false }) => {
     const [isPlaying, setIsPlaying] = useState(false);
@@ -7,7 +7,7 @@ const AudioPlayer = ({ mobile = false }) => {
 
     useEffect(() => {
         if (audioRef.current) {
-            audioRef.current.volume = 0.3;
+            audioRef.current.volume = 0.2;
         }
     }, []);
 
