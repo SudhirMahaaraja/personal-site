@@ -115,7 +115,7 @@ e:/personal site/
 
 **Sudhir Mahaaraja**
 
-*   **Portfolio**: [View Site](https://github.com/SudhirMahaaraja/personal-site)
+*   **Portfolio**: [View Site](https://sudhirmahaaraja.vercel.app/)
 *   **GitHub**: [SudhirMahaaraja](https://github.com/SudhirMahaaraja)
 
 ---
