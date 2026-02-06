@@ -3,12 +3,12 @@ import './Experience.css';
 
 const experienceData = [
     {
-        id: 'codsoft',
-        tabLabel: 'Machine Learning Intern – CodSoft',
-        subheading: 'Machine Learning Intern',
-        organization: 'CodSoft — Remote',
-        date: 'Feb 2024 – Mar 2024',
-        description: 'Built text classifiers, fraud detection models, and an SMS spam pipeline with real-time monitoring.'
+        id: 'binarywaves',
+        tabLabel: 'AI/ML Intern – BinaryWaves Solutions',
+        subheading: 'AI/ML Intern',
+        organization: 'BinaryWaves Solutions (Kash Tech LLC) — On-site',
+        date: 'Dec 2025 – Current',
+        description: 'Built a shop-floor CMS and time-series pipeline to extract degradation features and train regression models predicting EV motor remaining useful life (RUL).'
     },
     {
         id: 'mercuryminds',
@@ -17,6 +17,14 @@ const experienceData = [
         organization: 'MercuryMinds — On-site',
         date: 'Dec 2024 – Jun 2025',
         description: 'Delivered visitor-analytics vision systems and dashboards that revealed footfall, dwell time, and engagement patterns.'
+    },
+    {
+        id: 'codsoft',
+        tabLabel: 'Machine Learning Intern – CodSoft',
+        subheading: 'Machine Learning Intern',
+        organization: 'CodSoft — Remote',
+        date: 'Feb 2024 – Mar 2024',
+        description: 'Built text classifiers, fraud detection models, and an SMS spam pipeline with real-time monitoring.'
     }
 ];
 
