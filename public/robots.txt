@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sudhirmahaaraja.vercel.app/sitemap.xml

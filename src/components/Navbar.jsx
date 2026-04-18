@@ -35,7 +35,11 @@ const Navbar = ({ theme, toggleTheme, onNavigate, currentView }) => {
 
                 {/* Desktop Nav */}
                 <div className="nav-center">
-                    <a href="#" className="nav-link active" onClick={handleHomeClick}>
+                    <a href="#/" className={`nav-link ${currentView === 'home' ? 'active' : ''}`} onClick={(e) => {
+                        e.preventDefault();
+                        if (onNavigate) onNavigate('home');
+                        if (isMobileOpen) setIsMobileOpen(false);
+                    }}>
                         <span>🏠</span> Home
                     </a>
                     <a href="#projects" className="nav-link" onClick={(e) => {
@@ -66,6 +70,14 @@ const Navbar = ({ theme, toggleTheme, onNavigate, currentView }) => {
                     }}>
                         <span>👤</span> About Me
                     </a>
+                    
+                    <a href="#blogs" className={`nav-link ${currentView === 'blogs' ? 'active' : ''}`} onClick={(e) => {
+                        e.preventDefault();
+                        if (onNavigate) onNavigate('blogs');
+                    }}>
+                        <span>✍️</span> Blogs
+                    </a>
+
                     <button className="nav-link resume-btn" onClick={() => setIsResumeOpen(true)}>
                         <span>📄</span> Resume
                     </button>
@@ -98,7 +110,11 @@ const Navbar = ({ theme, toggleTheme, onNavigate, currentView }) => {
 
             {/* Mobile Menu */}
             <div className={`mobile-menu ${isMobileOpen ? 'open' : ''}`}>
-                <a href="#" className="nav-link" onClick={handleHomeClick}>Home</a>
+                <a href="#/" className={`nav-link ${currentView === 'home' ? 'active' : ''}`} onClick={(e) => {
+                    e.preventDefault();
+                    if (onNavigate) onNavigate('home');
+                    toggleMobile();
+                }}>Home</a>
                 <a href="#projects" className="nav-link" onClick={(e) => {
                     e.preventDefault();
                     if (currentView !== 'home') {
@@ -123,6 +139,13 @@ const Navbar = ({ theme, toggleTheme, onNavigate, currentView }) => {
                     }
                     toggleMobile();
                 }}>About Me</a>
+
+                <a href="#blogs" className={`nav-link ${currentView === 'blogs' ? 'active' : ''}`} onClick={(e) => {
+                    e.preventDefault();
+                    if (onNavigate) onNavigate('blogs');
+                    toggleMobile();
+                }}>Blogs</a>
+
                 <button className="nav-link resume-btn" onClick={() => { setIsResumeOpen(true); toggleMobile(); }}>
                     Resume
                 </button>

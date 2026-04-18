@@ -17,6 +17,7 @@ import Skills from './components/Skills';
 import Publications from './components/Publications';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import BlogsDetailed from './components/BlogsDetailed';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -39,8 +40,27 @@ function App() {
     setTheme(prev => prev === 'dark' ? 'light' : 'dark');
   };
 
+  // History Navigation using Hash
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash;
+      if (hash.startsWith('#/')) {
+        const view = hash.replace('#/', '');
+        setCurrentView(view);
+      } else if (!hash || hash === '') {
+        setCurrentView('home');
+      }
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    // Initialize view from hash if present
+    handleHashChange();
+
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
   const handleNavigate = (view) => {
-    setCurrentView(view);
+    window.location.hash = `#/${view}`;
     window.scrollTo(0, 0);
   };
 
@@ -74,6 +94,10 @@ function App() {
 
           {currentView === 'projects' && (
             <ProjectsDetailed onNavigate={handleNavigate} />
+          )}
+
+          {currentView === 'blogs' && (
+            <BlogsDetailed onNavigate={handleNavigate} />
           )}
 
           {currentView === 'contact' && (

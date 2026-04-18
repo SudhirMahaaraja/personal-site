@@ -251,7 +251,7 @@ const Contact = ({ onNavigate }) => {
                     <div className="contact-info">
                         <div className="info-logo">
                             <div className="logo-circle">
-                                <img src={avatar} alt="Sudhir Mahaaraja" className="logo-img" />
+                                <img src={avatar} alt="Sudhir Mahaaraja - AI/ML Developer & Computer Vision Engineer Avatar" className="logo-img" />
                             </div>
                         </div>
 

@@ -97,7 +97,7 @@ const Skills = () => {
                                 aria-label={skill.name}
                             >
                                 <div className="skill-icon-wrapper">
-                                    <img src={skill.icon} alt={skill.name} className="skill-icon-img" />
+                                    <img src={skill.icon} alt={`${skill.name} - AI/ML & Data Science Technology Skill Icon`} className="skill-icon-img" />
                                 </div>
                                 <span className="skill-name">{skill.name}</span>
                             </div>

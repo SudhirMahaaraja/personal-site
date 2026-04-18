@@ -1047,7 +1047,8 @@
 
 [data-theme="light"] .aura-background-component {
     opacity: 0.5;
-    filter: sepia(100%) saturate(2) hue-rotate(5deg) brightness(1.2);
+    filter: invert(1) hue-rotate(180deg) brightness(1.2) contrast(1.2);
+    mix-blend-mode: multiply;
     mask-image: none;
     -webkit-mask-image: none;
 }
